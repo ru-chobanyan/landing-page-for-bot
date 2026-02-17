@@ -15,7 +15,7 @@ export default function Page() {
   return (
     <>
       <Header />
-      <main>
+      <main className="relative">
         <Hero />
         <PainSolution />
         <HowItWorks />
