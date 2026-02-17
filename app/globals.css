@@ -1,0 +1,180 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .text-pretty {
+    text-wrap: pretty;
+  }
+}
+
+@layer base {
+  :root {
+    --background: 235 15% 4%;
+    --foreground: 0 0% 95%;
+    --card: 235 12% 9%;
+    --card-foreground: 0 0% 95%;
+    --popover: 235 12% 7%;
+    --popover-foreground: 0 0% 95%;
+    --primary: 271 76% 53%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 235 10% 12%;
+    --secondary-foreground: 0 0% 85%;
+    --muted: 235 10% 14%;
+    --muted-foreground: 235 8% 70%;
+    --accent: 235 10% 12%;
+    --accent-foreground: 0 0% 90%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 235 12% 14%;
+    --input: 235 12% 14%;
+    --ring: 271 76% 53%;
+    --radius: 0.75rem;
+    --surface: 235 12% 5.5%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* ── Noise texture overlay ── */
+.noise-overlay::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 256px 256px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ── Ultra-subtle grid ── */
+.grid-bg {
+  background-image:
+    linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
+
+/* ── Glass card surface ── */
+.glass-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.07);
+  backdrop-filter: blur(12px);
+}
+.glass-card:hover {
+  background: rgba(255,255,255,0.06);
+  border-color: rgba(255,255,255,0.12);
+}
+
+/* ── Animated gradient border (pricing featured) ── */
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes gradient-rotate {
+  0% { --angle: 0deg; }
+  100% { --angle: 360deg; }
+}
+
+.animated-border {
+  position: relative;
+  background: hsl(var(--card));
+  border-radius: 1.25rem;
+  z-index: 0;
+}
+
+.animated-border::before {
+  content: "";
+  position: absolute;
+  inset: -1.5px;
+  border-radius: calc(1.25rem + 1.5px);
+  background: conic-gradient(from var(--angle), hsl(271 76% 53%), hsl(290 55% 60%), hsl(250 55% 60%), hsl(271 76% 53%));
+  animation: gradient-rotate 6s linear infinite;
+  z-index: -1;
+}
+
+.animated-border::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 1.25rem;
+  background: hsl(var(--card));
+  z-index: -1;
+}
+
+/* ── Shimmer scan ── */
+@keyframes shimmer-scan {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.shimmer-scan::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(168,85,247,0.12), transparent);
+  animation: shimmer-scan 2.5s ease-in-out infinite;
+}
+
+/* ── Button shine on hover ── */
+@keyframes btn-shine {
+  0% { left: -100%; }
+  50% { left: 100%; }
+  100% { left: 100%; }
+}
+
+.btn-glow {
+  position: relative;
+  overflow: hidden;
+}
+.btn-glow::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+  animation: btn-shine 3s ease-in-out infinite;
+  pointer-events: none;
+}
+
+/* ── Hero gradient mesh ── */
+@keyframes mesh-drift {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(30px, -20px) scale(1.05); }
+  66% { transform: translate(-20px, 15px) scale(0.95); }
+}
+
+.hero-mesh-1 {
+  animation: mesh-drift 12s ease-in-out infinite;
+}
+.hero-mesh-2 {
+  animation: mesh-drift 15s ease-in-out infinite reverse;
+}
+
+/* ── Glow on hover for trust/cards ── */
+.glow-hover {
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+.glow-hover:hover {
+  box-shadow: 0 0 24px -6px rgba(168,85,247,0.15);
+  border-color: rgba(168,85,247,0.2);
+}
