@@ -60,10 +60,11 @@ export function Header() {
 
         {/* Desktop right */}
         <div className="hidden items-center gap-4 md:flex">
-          <motion.div
-            className="flex items-center gap-1.5 rounded-full border border-primary/30 bg-gradient-to-r from-primary/15 to-purple-500/15 px-3 py-1.5 backdrop-blur-sm"
-            whileHover={{ scale: 1.05 }}
-            transition={{ duration: 0.2 }}
+          <a
+            href={BOT_LINKS.channel}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-1.5 rounded-full border border-primary/30 bg-gradient-to-r from-primary/15 to-purple-500/15 px-3 py-1.5 backdrop-blur-sm transition-all duration-200 hover:scale-[1.03]"
           >
             <Gift className="h-3.5 w-3.5 text-primary" />
             <span className="text-[12px] font-semibold text-white">

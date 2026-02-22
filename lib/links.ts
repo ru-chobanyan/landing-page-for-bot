@@ -6,4 +6,5 @@ export const BOT_LINKS = {
   examples: `${BASE_BOT_URL}SRC_LAND_EXAMPLES`,
   pricing: `${BASE_BOT_URL}SRC_LAND_PRICING`,
   finalCTA: `${BASE_BOT_URL}SRC_LAND_FINAL`,
+  channel: "https://t.me/+Zg67BHgqV904OGYy",
 } as const;
