@@ -70,7 +70,7 @@ export function Header() {
             <span className="text-[12px] font-semibold text-white">
               2 FREE генерации 🎁
             </span>
-          </motion.div>
+          </a>
           <Button
             asChild
             size="sm"
@@ -126,6 +126,19 @@ export function Header() {
                     Открыть бота
                   </a>
                 </Button>
+
+                {/* Mobile Promo Link */}
+                <a
+                  href={BOT_LINKS.channel}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-4 flex w-full items-center justify-center gap-2 rounded-xl border border-primary/20 bg-primary/5 p-3 transition-opacity hover:opacity-80"
+                >
+                  <Gift className="h-4 w-4 text-primary" />
+                  <span className="text-xs font-bold text-primary text-center">
+                    2 БЕСПЛАТНЫХ ГЕНЕРАЦИИ В КАНАЛЕ
+                  </span>
+                </a>
               </div>
             </nav>
           </motion.div>
