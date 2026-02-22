@@ -7,7 +7,10 @@ import { motion, useScroll, useTransform } from "framer-motion"
 import { useRef } from "react"
 import Image from "next/image"
 
-const BOT_LINK = "https://t.me/primerka_wb_bot?start=SRC_LAND_01"
+import { BOT_LINKS } from "@/lib/links"
+import { reachGoal } from "@/lib/metrika"
+
+const BOT_LINK = BOT_LINKS.hero
 
 const featurePills = [
   { icon: Check, label: "Списание только за успешный результат" },
@@ -217,6 +220,7 @@ export function Hero() {
                   size="lg"
                   className="btn-glow group h-12 rounded-2xl px-7 text-sm font-semibold shadow-xl shadow-primary/25 transition-all hover:shadow-2xl hover:shadow-primary/30 active:scale-[0.98]"
                   data-cta="open-bot"
+                  onClick={() => reachGoal("open_bot", "hero")}
                 >
                   <a href={BOT_LINK} target="_blank" rel="noopener noreferrer">
                     {"Открыть бота в Telegram"}

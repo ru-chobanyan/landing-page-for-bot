@@ -5,7 +5,10 @@ import { Button } from "@/components/ui/button"
 import { Menu, X, Gift } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
 
-const BOT_LINK = "https://t.me/primerka_wb_bot?start=SRC_LAND_01"
+import { BOT_LINKS } from "@/lib/links"
+import { reachGoal } from "@/lib/metrika"
+
+const BOT_LINK = BOT_LINKS.header
 
 const navItems = [
   { label: "Как работает", href: "#how-it-works" },
@@ -26,8 +29,8 @@ export function Header() {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled
-          ? "bg-[rgba(7,7,10,0.7)] backdrop-blur-xl border-b border-white/[0.12] shadow-lg shadow-black/20"
-          : "bg-gradient-to-b from-black/20 to-transparent backdrop-blur-md"
+        ? "bg-[rgba(7,7,10,0.7)] backdrop-blur-xl border-b border-white/[0.12] shadow-lg shadow-black/20"
+        : "bg-gradient-to-b from-black/20 to-transparent backdrop-blur-md"
         }`}
     >
       <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-3.5 md:px-8">
@@ -72,6 +75,7 @@ export function Header() {
             size="sm"
             className="btn-glow h-8 rounded-lg text-xs font-semibold shadow-lg shadow-primary/20"
             data-cta="open-bot"
+            onClick={() => reachGoal("open_bot", "header")}
           >
             <a href={BOT_LINK} target="_blank" rel="noopener noreferrer">
               Открыть бота
@@ -115,6 +119,7 @@ export function Header() {
                   size="sm"
                   className="btn-glow w-full rounded-lg text-sm font-semibold shadow-lg shadow-primary/20"
                   data-cta="open-bot"
+                  onClick={() => reachGoal("open_bot", "header")}
                 >
                   <a href={BOT_LINK} target="_blank" rel="noopener noreferrer">
                     Открыть бота

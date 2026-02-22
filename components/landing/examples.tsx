@@ -5,7 +5,10 @@ import { FadeIn } from "./motion"
 import { ArrowRight, ArrowDown, Sparkles } from "lucide-react"
 import Image from "next/image"
 
-const BOT_LINK = "https://t.me/primerka_wb_bot?start=SRC_LAND_01"
+import { BOT_LINKS } from "@/lib/links"
+import { reachGoal } from "@/lib/metrika"
+
+const BOT_LINK = BOT_LINKS.examples
 
 interface TryOnExample {
   id: number
@@ -126,6 +129,7 @@ export function Examples() {
               asChild
               className="btn-glow group h-11 rounded-2xl px-6 text-sm font-semibold shadow-xl shadow-primary/20 transition-all active:scale-[0.98]"
               data-cta="open-bot"
+              onClick={() => reachGoal("open_bot", "examples")}
             >
               <a href={BOT_LINK} target="_blank" rel="noopener noreferrer">
                 {"Сделать примерку в Telegram"}

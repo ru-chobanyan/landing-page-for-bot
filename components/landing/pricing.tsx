@@ -4,7 +4,10 @@ import { Button } from "@/components/ui/button"
 import { FadeIn, StaggerContainer, StaggerItem } from "./motion"
 import { ArrowRight, Check } from "lucide-react"
 
-const BOT_LINK = "https://t.me/primerka_wb_bot?start=SRC_LAND_01"
+import { BOT_LINKS } from "@/lib/links"
+import { reachGoal } from "@/lib/metrika"
+
+const BOT_LINK = BOT_LINKS.pricing
 
 const plans = [
   {
@@ -62,8 +65,8 @@ export function Pricing() {
             <StaggerItem key={i}>
               <div
                 className={`relative flex h-full flex-col rounded-[20px] p-5 transition-all duration-300 hover:-translate-y-1 ${plan.popular
-                    ? "animated-border shadow-xl shadow-primary/10"
-                    : "glass-card glow-hover"
+                  ? "animated-border shadow-xl shadow-primary/10"
+                  : "glass-card glow-hover"
                   }`}
               >
                 {plan.popular && (
@@ -103,6 +106,7 @@ export function Pricing() {
               size="lg"
               className="btn-glow group h-12 w-full rounded-2xl text-sm font-semibold shadow-xl shadow-primary/25 transition-all hover:shadow-2xl hover:shadow-primary/30 active:scale-[0.98] sm:w-auto sm:px-10"
               data-cta="open-bot"
+              onClick={() => reachGoal("open_bot", "pricing")}
             >
               <a href={BOT_LINK} target="_blank" rel="noopener noreferrer">
                 {"Открыть бота и начать"}
