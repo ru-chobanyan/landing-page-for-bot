@@ -47,37 +47,60 @@ const faqItems = [
   },
 ]
 
+import { HelpCircle, ChevronDown } from "lucide-react"
+
 export function FAQ() {
   return (
-    <section id="faq" className="relative py-16 md:py-24 scroll-mt-20">
-      <div className="mx-auto max-w-3xl px-5 md:px-8">
+    <section id="faq" className="relative py-16 md:py-24 scroll-mt-20 overflow-hidden">
+      {/* Ambient Glows */}
+      <div className="ambient-glow -left-[10%] top-[40%] opacity-20" />
+
+      <div className="relative mx-auto max-w-4xl px-5 md:px-8">
         <FadeIn>
-          <span className="inline-flex items-center rounded-full border border-white/[0.08] bg-white/[0.04] px-3 py-1 text-xs font-medium text-white/50">
-            FAQ
-          </span>
-          <h2 className="mt-4 text-balance text-2xl font-bold tracking-tight text-foreground md:text-3xl lg:text-[36px]">
-            Частые вопросы
-          </h2>
+          <div className="flex flex-col items-center text-center">
+            <span className="inline-flex items-center rounded-full border border-primary/20 bg-primary/5 px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-primary">
+              FAQ
+            </span>
+            <h2 className="mt-6 text-balance text-3xl font-extrabold tracking-tight text-white md:text-5xl">
+              Частые <span className="text-gradient">вопросы</span>
+            </h2>
+          </div>
         </FadeIn>
 
         <FadeIn delay={0.1}>
-          <div className="mt-8 glass-card rounded-2xl overflow-hidden">
-            <Accordion type="single" collapsible>
+          <div className="mt-16 space-y-4">
+            <Accordion type="single" collapsible className="w-full space-y-4">
               {faqItems.map((item, i) => (
                 <AccordionItem
                   key={i}
                   value={`faq-${i}`}
-                  className="border-b border-white/[0.05] px-6 last:border-b-0 transition-colors hover:bg-white/[0.02]"
+                  className="glass-card-premium rounded-[24px] border border-white/5 transition-all duration-300 data-[state=open]:border-primary/30 data-[state=open]:bg-primary/[0.03] overflow-hidden"
                 >
-                  <AccordionTrigger className="py-5 text-left text-sm font-medium text-foreground hover:no-underline [&[data-state=open]>svg]:rotate-180">
-                    {item.q}
+                  <AccordionTrigger className="flex items-center gap-4 px-6 py-6 text-left text-base font-bold text-white/80 hover:no-underline hover:text-white transition-colors [&>svg]:hidden">
+                    <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                      <HelpCircle className="h-4.5 w-4.5" />
+                    </div>
+                    <span className="flex-1">{item.q}</span>
+                    <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-white/10 text-white/40 transition-transform duration-300 group-data-[state=open]:rotate-180 group-data-[state=open]:border-primary/30 group-data-[state=open]:text-primary">
+                      <ChevronDown className="h-4 w-4" />
+                    </div>
                   </AccordionTrigger>
-                  <AccordionContent className="pb-5 text-sm font-medium leading-relaxed text-muted-foreground">
-                    {item.a}
+                  <AccordionContent className="px-6 pb-6 pt-0 text-base font-medium leading-relaxed text-white/50 border-t border-white/5">
+                    <div className="mt-4 pl-12">
+                      {item.a}
+                    </div>
                   </AccordionContent>
                 </AccordionItem>
               ))}
             </Accordion>
+          </div>
+        </FadeIn>
+
+        <FadeIn delay={0.2}>
+          <div className="mt-16 text-center">
+            <p className="text-sm font-bold uppercase tracking-widest text-white/30">
+              Остались вопросы? Пишите в <a href="https://t.me/ru_ch_04" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">поддержку</a>
+            </p>
           </div>
         </FadeIn>
       </div>
