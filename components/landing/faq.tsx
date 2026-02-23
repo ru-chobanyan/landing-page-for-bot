@@ -43,7 +43,19 @@ const faqItems = [
   },
   {
     q: "Куда писать, если что-то не так?",
-    a: "Поддержка: https://t.me/ru_ch_04",
+    a: (
+      <>
+        {"Поддержка: "}
+        <a
+          href="https://t.me/ru_ch_04"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-primary hover:underline transition-colors"
+        >
+          https://t.me/ru_ch_04
+        </a>
+      </>
+    ),
   },
 ]
 
