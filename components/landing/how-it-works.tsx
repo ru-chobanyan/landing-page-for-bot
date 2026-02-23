@@ -1,6 +1,6 @@
 "use client"
 
-import { FadeIn, motion } from "./motion"
+import { FadeIn, motion, StaggerContainer, StaggerItem } from "./motion"
 import { Camera, Shirt, CheckCircle, Sparkles } from "lucide-react"
 
 const tips = [
@@ -95,37 +95,32 @@ export function HowItWorks() {
           <div className="relative mt-20 overflow-hidden rounded-[40px] border border-white/10 bg-white/[0.03] p-10 md:p-16 text-center backdrop-blur-md">
             <div className="absolute inset-0 bg-gradient-to-b from-primary/10 to-transparent opacity-50" />
             <div className="relative z-10">
-              <h4 className="text-3xl font-black tracking-tight text-white md:text-4xl">
+              <h4 className="text-3xl font-black tracking-tight text-white md:text-5xl text-pretty">
                 {"Готовы! Бот пришлёт результат через 5\u201315 секунд."}
               </h4>
 
-              <div className="mt-12 flex flex-col md:flex-row items-center justify-center gap-8 md:gap-16">
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: 0.5, duration: 0.5 }}
-                  className="flex flex-col items-center gap-3"
-                >
-                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/20 text-primary shadow-[0_0_15px_rgba(168,85,247,0.3)]">
-                    <Sparkles className="h-6 w-6" />
+              <StaggerContainer className="mt-14 flex flex-col md:flex-row items-center justify-center gap-8 md:gap-20" delay={0.5}>
+                {/* Benefit 1 */}
+                <StaggerItem className="flex flex-col items-center gap-5 group">
+                  <div className="pulse-glow relative flex h-16 w-16 items-center justify-center rounded-2xl bg-primary text-white shadow-[0_0_20px_rgba(168,85,247,0.5)] transition-all group-hover:scale-110">
+                    <Sparkles className="h-8 w-8 text-white" />
+                    <div className="absolute inset-0 block rounded-2xl bg-primary blur-lg -z-10 opacity-50" />
                   </div>
-                  <span className="text-xl font-bold tracking-tight text-white">⚡ Быстрая генерация</span>
-                </motion.div>
+                  <span className="text-2xl font-black tracking-tight text-white md:text-3xl">⚡ Быстрая генерация</span>
+                </StaggerItem>
 
-                <div className="hidden md:block h-12 w-px bg-white/10" />
+                {/* Divider */}
+                <div className="hidden md:block h-16 w-px bg-white/10" />
 
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: 0.6, duration: 0.5 }}
-                  className="flex flex-col items-center gap-3"
-                >
-                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/20 text-primary shadow-[0_0_15px_rgba(168,85,247,0.3)]">
-                    <CheckCircle className="h-6 w-6" />
+                {/* Benefit 2 */}
+                <StaggerItem className="flex flex-col items-center gap-5 group">
+                  <div className="pulse-glow relative flex h-16 w-16 items-center justify-center rounded-2xl bg-primary text-white shadow-[0_0_20px_rgba(168,85,247,0.5)] transition-all group-hover:scale-110">
+                    <CheckCircle className="h-8 w-8 text-white" />
+                    <div className="absolute inset-0 block rounded-2xl bg-primary blur-lg -z-10 opacity-50" />
                   </div>
-                  <span className="text-xl font-bold tracking-tight text-white">🛡️ Оплата только за успех</span>
-                </motion.div>
-              </div>
+                  <span className="text-2xl font-black tracking-tight text-white md:text-3xl">🛡️ Оплата только за успех</span>
+                </StaggerItem>
+              </StaggerContainer>
             </div>
           </div>
         </FadeIn>
