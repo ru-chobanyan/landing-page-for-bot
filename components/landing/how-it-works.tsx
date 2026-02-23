@@ -1,7 +1,7 @@
 "use client"
 
-import { FadeIn } from "./motion"
-import { Camera, Shirt, CheckCircle } from "lucide-react"
+import { FadeIn, motion } from "./motion"
+import { Camera, Shirt, CheckCircle, Sparkles } from "lucide-react"
 
 const tips = [
   "Ровный свет, без жёстких фильтров",
@@ -92,16 +92,39 @@ export function HowItWorks() {
         </div>
 
         <FadeIn delay={0.3}>
-          <div className="relative mt-16 overflow-hidden rounded-[32px] border border-white/5 bg-white/[0.02] p-8 text-center backdrop-blur-sm">
-            <div className="absolute inset-0 bg-gradient-to-b from-primary/5 to-transparent opacity-50" />
+          <div className="relative mt-20 overflow-hidden rounded-[40px] border border-white/10 bg-white/[0.03] p-10 md:p-16 text-center backdrop-blur-md">
+            <div className="absolute inset-0 bg-gradient-to-b from-primary/10 to-transparent opacity-50" />
             <div className="relative z-10">
-              <p className="text-lg font-bold text-white">
-                {"Готово! Через 5\u201315 секунд бот пришлёт результат."}
-              </p>
-              <div className="mt-3 flex flex-wrap justify-center gap-x-4 text-sm font-medium text-white/40">
-                <span>⚡ Быстрая генерация</span>
-                <span>•</span>
-                <span>🛡️ Оплата только за успех</span>
+              <h4 className="text-3xl font-black tracking-tight text-white md:text-4xl">
+                {"Готовы! Бот пришлёт результат через 5\u201315 секунд."}
+              </h4>
+
+              <div className="mt-12 flex flex-col md:flex-row items-center justify-center gap-8 md:gap-16">
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: 0.5, duration: 0.5 }}
+                  className="flex flex-col items-center gap-3"
+                >
+                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/20 text-primary shadow-[0_0_15px_rgba(168,85,247,0.3)]">
+                    <Sparkles className="h-6 w-6" />
+                  </div>
+                  <span className="text-xl font-bold tracking-tight text-white">⚡ Быстрая генерация</span>
+                </motion.div>
+
+                <div className="hidden md:block h-12 w-px bg-white/10" />
+
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: 0.6, duration: 0.5 }}
+                  className="flex flex-col items-center gap-3"
+                >
+                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/20 text-primary shadow-[0_0_15px_rgba(168,85,247,0.3)]">
+                    <CheckCircle className="h-6 w-6" />
+                  </div>
+                  <span className="text-xl font-bold tracking-tight text-white">🛡️ Оплата только за успех</span>
+                </motion.div>
               </div>
             </div>
           </div>

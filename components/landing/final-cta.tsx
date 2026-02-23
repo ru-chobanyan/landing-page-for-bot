@@ -20,8 +20,8 @@ export function FinalCTA() {
 
           <div className="relative z-10">
             <FadeIn>
-              <h2 className="text-balance text-2xl font-bold tracking-tight text-foreground md:text-3xl lg:text-[40px]">
-                {"Готов(а) примерить перед заказом?"}
+              <h2 className="text-balance text-2xl font-black tracking-tight text-white md:text-5xl lg:text-[56px]">
+                {"Готовы примерить перед заказом?"}
               </h2>
             </FadeIn>
             <FadeIn delay={0.1}>

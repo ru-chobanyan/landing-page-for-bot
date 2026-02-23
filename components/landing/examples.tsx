@@ -25,19 +25,19 @@ export function Examples() {
   return (
     <section className="relative py-16 md:py-24">
       <div className="mx-auto max-w-6xl px-5 md:px-8">
-        <div className="mx-auto max-w-3xl text-center">
+        <div className="flex flex-col items-center text-center">
           <FadeIn>
-            <span className="inline-flex items-center rounded-full border border-white/[0.08] bg-white/[0.04] px-3 py-1 text-xs font-medium text-white/50">
+            <span className="inline-flex items-center rounded-full border border-primary/20 bg-primary/5 px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-primary">
               Галерея
             </span>
           </FadeIn>
           <FadeIn delay={0.05}>
-            <h2 className="mt-4 text-2xl font-bold tracking-tight text-foreground md:text-3xl lg:text-[36px]">
-              Примеры результатов
+            <h2 className="mt-8 text-balance text-3xl font-extrabold tracking-tight text-white md:text-5xl">
+              Примеры <span className="text-gradient">результатов</span>
             </h2>
           </FadeIn>
           <FadeIn delay={0.1}>
-            <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+            <p className="mt-4 max-w-xl text-lg text-muted-foreground">
               {"Три простых шага от твоего фото до примерки — вот как это работает."}
             </p>
           </FadeIn>
