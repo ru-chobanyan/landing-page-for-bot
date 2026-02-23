@@ -10,6 +10,11 @@ export const metadata: Metadata = {
   description:
     'Виртуальная примерка одежды с Wildberries на вашем фото. Отправьте фото и скрин карточки WB — получите результат за 5-15 секунд. Бесплатные генерации после подписки на канал.',
   keywords: 'примерка WB, виртуальная примерка Wildberries, онлайн примерка одежды, примерка по фото, Telegram бот примерка',
+  icons: {
+    icon: '/icon.png',
+    shortcut: '/favicon.ico',
+    apple: '/apple-touch-icon.png',
+  },
 }
 
 export const viewport: Viewport = {
