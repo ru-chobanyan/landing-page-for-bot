@@ -68,10 +68,10 @@ export function Examples() {
                 </div>
 
                 {/* Arrow down */}
-                <div className="my-6 flex justify-center">
+                <div className="my-8 flex justify-center">
                   <div className="relative flex items-center justify-center">
-                    <ArrowDown className="h-7 w-7 animate-bounce text-primary drop-shadow-[0_0_8px_rgba(168,85,247,0.6)]" />
-                    <div className="absolute inset-0 bg-primary/20 blur-xl rounded-full -z-10" />
+                    <ArrowDown className="h-14 w-14 animate-bounce text-primary drop-shadow-[0_0_15px_rgba(168,85,247,0.7)]" />
+                    <div className="absolute inset-0 bg-primary/20 blur-2xl rounded-full -z-10 scale-150" />
                   </div>
                 </div>
 
@@ -95,10 +95,10 @@ export function Examples() {
                 </div>
 
                 {/* Arrow down */}
-                <div className="my-6 flex justify-center">
+                <div className="my-8 flex justify-center">
                   <div className="relative flex items-center justify-center">
-                    <ArrowDown className="h-7 w-7 animate-bounce text-primary drop-shadow-[0_0_8px_rgba(168,85,247,0.6)]" />
-                    <div className="absolute inset-0 bg-primary/20 blur-xl rounded-full -z-10" />
+                    <ArrowDown className="h-14 w-14 animate-bounce text-primary drop-shadow-[0_0_15px_rgba(168,85,247,0.7)]" />
+                    <div className="absolute inset-0 bg-primary/20 blur-2xl rounded-full -z-10 scale-150" />
                   </div>
                 </div>
 
